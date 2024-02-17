@@ -23,8 +23,6 @@ async function handleButtonClick(event){
     let color = event.target.id;
     answers.push(color);
 
-    playSound(color);
-
     $("#" + event.target.id).addClass("pressed");
     setTimeout(function (){
             $("#" + event.target.id).removeClass("pressed");
@@ -32,6 +30,10 @@ async function handleButtonClick(event){
     );
 
     checkAnswers();
+
+    if(!endGame){
+        playSound(color);
+    }
 
     if (colors.length == answers.length && !endGame){
         $("#level-title").text("Level " + (colors.length+1));
@@ -71,40 +73,19 @@ async function playColors(colors){
             switch (color){
                 case "green":
                     playSound(color);
-    
-                    $("#green").addClass("pressed");
-                    setTimeout(function (){
-                        $("#green").removeClass("pressed");    
-                        }, 100
-                    );
-    
+                    $("#green").fadeIn(100).fadeOut(100).fadeIn(100);
                 break;
                 case "red":
                     playSound(color);
-    
-                    $("#red").addClass("pressed");
-                    setTimeout(function (){
-                            $("#red").removeClass("pressed");      
-                        }, 100
-                    );
+                    $("#red").fadeIn(100).fadeOut(100).fadeIn(100);
                 break;
                 case "yellow":
                     playSound(color);
-                    
-                    $("#yellow").addClass("pressed");
-                    setTimeout(function (){
-                            $("#yellow").removeClass("pressed");      
-                        }, 100
-                    );
+                    $("#yellow").fadeIn(100).fadeOut(100).fadeIn(100);
                 break;
                 case "blue":
                     playSound(color);
-    
-                    $("#blue").addClass("pressed");
-                    setTimeout(function (){
-                            $("#blue").removeClass("pressed");      
-                        }, 100
-                    );
+                    $("#blue").fadeIn(100).fadeOut(100).fadeIn(100);
                 break;
             }
     
